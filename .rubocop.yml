@@ -1,0 +1,18 @@
+ClassAndModuleChildren:
+  Exclude:
+    - 'spec/**/*.rb'
+Documentation:
+  Enabled: false
+Metrics/LineLength:
+  Max: 100
+  IgnoredPatterns: ['\A#']
+Metrics/ParameterLists:
+  CountKeywordArgs: false
+Style/Alias:
+  Enabled: false
+Style/ClassVars:
+  Enabled: false
+Style/LambdaCall:
+  Enabled: false
+Style/NumericPredicate:
+  Enabled: false
