@@ -24,13 +24,14 @@ module VantivSFTPReports
       self.class.new(@opts.merge(opts))
     end
 
-    %i[host organization_id password path username].each { |o| define_method(o) { @opts[o] } }
+    %i[host organization_id password path port username].each { |o| define_method(o) { @opts[o] } }
 
     private
 
     def defaults!
       @opts[:host] ||= 'reports.iq.vantivcnp.com'
       @opts[:path] ||= 'reports'
+      @opts[:port] ||= '22'
     end
   end
 end

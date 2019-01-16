@@ -30,6 +30,7 @@ VantivSFTPReports.configure(
   organization_id:, # Organization ID for reports, leave blank if you only have one organization
   password:,        # Your SFTP username
   path:,            # Directory where reports are stored, defaults to 'reports'
+  port:,            # SFTP port, defaults to '22'
   username:         # Your SFTP username
 )
 ```
@@ -44,6 +45,7 @@ Prefix any configuration option with `vantiv_sftp_` and it will be automatically
 * `ENV['vantiv_sftp_organization_id']`
 * `ENV['vantiv_sftp_password']`
 * `ENV['vantiv_sftp_path']`
+* `ENV['vantiv_sftp_port']`
 * `ENV['vantiv_sftp_username']`
 
 ## Usage
