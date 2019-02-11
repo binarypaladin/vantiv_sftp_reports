@@ -2,6 +2,7 @@
 
 require 'csv'
 require 'vantiv_sftp_reports/config'
+require 'net/ssh/proxy/http'
 
 module VantivSFTPReports
   class Fetch
@@ -46,12 +47,20 @@ module VantivSFTPReports
     end
 
     def session
-      Net::SFTP.start(config.host, config.username, config.sftp_opts) { |sftp| yield(sftp) }
+      sftp_opts = config.sftp_opts
+      sftp_opts.merge!({ proxy: proxy }).delete(:proxy_url) if sftp_opts[:proxy_url]
+      Net::SFTP.start(config.host, config.username, sftp_opts) { |sftp| yield(sftp) }
     end
 
     %i[organization_id path].each { |m| define_method(m) { config.__send__(m) } }
 
     private
+
+    def proxy
+      return nil unless config.proxy_url
+      uri = URI(config.proxy_url)
+      Net::SSH::Proxy::HTTP.new(uri.host, uri.port)
+    end
 
     def date_str(obj)
       obj.respond_to?(:strftime) ? obj.strftime('%Y%m%d') : obj.to_s
