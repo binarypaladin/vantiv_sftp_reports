@@ -24,7 +24,15 @@ module VantivSFTPReports
       self.class.new(@opts.merge(opts))
     end
 
-    %i[host organization_id password path port proxy_url username].each { |o| define_method(o) { @opts[o] } }
+    %i[
+      host
+      organization_id
+      password
+      path
+      port
+      proxy_url
+      username
+    ].each { |o| define_method(o) { @opts[o] } }
 
     private
 

@@ -48,7 +48,7 @@ module VantivSFTPReports
 
     def session
       sftp_opts = config.sftp_opts
-      sftp_opts.merge!({ proxy: proxy }).delete(:proxy_url) if sftp_opts[:proxy_url]
+      sftp_opts.merge!(proxy: proxy).delete(:proxy_url) if sftp_opts[:proxy_url]
       Net::SFTP.start(config.host, config.username, sftp_opts) { |sftp| yield(sftp) }
     end
 
