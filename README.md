@@ -31,6 +31,7 @@ VantivSFTPReports.configure(
   password:,        # Your SFTP username
   path:,            # Directory where reports are stored, defaults to 'reports'
   port:,            # SFTP port, defaults to '22'
+  proxy_url:,       # A proxy host to use for the SSH session, useful if you need to fetch reports from a server not directly whitelisted in your Vantiv account setup
   username:         # Your SFTP username
 )
 ```
@@ -46,6 +47,7 @@ Prefix any configuration option with `vantiv_sftp_` and it will be automatically
 * `ENV['vantiv_sftp_password']`
 * `ENV['vantiv_sftp_path']`
 * `ENV['vantiv_sftp_port']`
+* `ENV['vantiv_sftp_proxy_url']`
 * `ENV['vantiv_sftp_username']`
 
 ## Usage
