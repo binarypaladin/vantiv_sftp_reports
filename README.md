@@ -71,7 +71,7 @@ reports = VantivSFTPReports::Fetch.new.call(
 )
 ```
 
-If you're using a single configuration and don't need to anything particularly sophisticated, you can use the following abreviated method:
+If you're using a single configuration and don't need to anything particularly sophisticated, you can use the following abbreviated method:
 
 ```ruby
 reports = VantivSFTPReports.fetch(*args)
